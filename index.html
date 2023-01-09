@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Questrial&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link rel="stylesheet" href="css/login.css">
+    <title>Iniciar session</title>
+</head>
+<body>
+    <div class="hero is-fullheight">
+    <div class="hero-head">
+        <nav class="navbar" role="navigation" aria-label="main navigation">
+            <div class="container">
+              <div class="navbar-brand">
+                <a class="navbar-item" href="index.html">
+                  <img src="img/delaoshop-3.png"/>
+                </a>
+        
+                <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+                  <span aria-hidden="true"></span>
+                  <span aria-hidden="true"></span>
+                  <span aria-hidden="true"></span>
+                </a>
+              </div>
+        
+              <div id="navbarBasicExample" class="navbar-menu">
+                <div class="navbar-end">
+                  <a class="navbar-item"> Inicio </a>
+                  <a class="navbar-item"> Acerca de la tienda </a>
+                  <a class="navbar-item">  </a>
+                </div>
+              </div>
+            </div>
+          </nav>
+        </div>
+    <div class="hero-body has-text-centered">
+        <div class="login">
+            <figure class="image is-5by4">
+                <img  class="is-center" src="img/delaoshop-1.png">
+              </figure>
+          <form action="/php/login/validarUser.php" method="post" >
+            <div class="field">
+                <label class="label">Usuario</label>
+              <div class="control">
+                <input class="input is-medium is-rounded" type="text" placeholder="Tu nombre" name="user"/>
+              </div>
+            </div>
+            <div class="field">
+                <label class="label">Contraseña</label>
+              <div class="control">
+                <input class="input is-medium is-rounded" type="password" placeholder="**********" name="psw" />
+              </div>
+            </div>
+            <br />
+            <button type="submit" class="button is-block is-fullwidth is-primary is-medium is-rounded">
+              Entrar
+            </button>
+          </form>
+          <br>
+          <nav class="level">
+            <div class="level-item has-text-centered">
+              <div>
+                <a href="crearCuenta.html">Crea una Cuenta</a>
+              </div>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </section>
+    <div class="hero-foot">
+        <footer class="footer">
+            <div class="container">
+                <div class="content has-text-centered">
+                    <p>
+                        <strong>Página web creada </strong> por: <a href="https://github.com/Charly9926">Carlos Mauricio Jiménez Sánchez</a>. El codigo fuente esta licenciado por el: 
+                        <a href="https://tesoem.edomex.gob.mx">TESOEM</a>.
+                    </p>
+                    <p>
+                        <a class="icon" href="https://www.instagram.com/just_.charly/">
+                            <i class="fa fa-instagram"></i>
+                        </a>
+                    </p>
+                </div>
+            </div>
+        </footer>
+    </div>
+    </div>
+</body>
+</html>

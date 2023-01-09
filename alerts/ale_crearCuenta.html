@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Questrial&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link rel="stylesheet" href="../css/crearcuenta.css">
+    <title>Crear nueva Cuenta</title>
+</head>
+<body>
+    <section class="hero is-success is-fullheight">
+        <div class="hero-body">
+            <div class="container has-text-centered">
+                <div class="column is-4 is-offset-4">
+                    <h3 class="title has-text-black">Crear Cuenta</h3>
+                    <hr class="login-hr">
+                    <p class="subtitle has-text-black">Escoje un rol</p>
+                    <div class="box">
+                        <figure class="avatar">
+                            <img src="../img/delaoshop-1.png" width="150" height="150">
+                        </figure>
+                        <form method="post" action="/php/login/crearCuenta.php">
+                            <div class="field">
+                                <div class="control">
+                                    <input class="input is-large" type="text" placeholder="Nombre de Usuario" autofocus="" name="nombre" required>
+                                </div>
+                            </div>
+
+                            <div class="field">
+                                <div class="control">
+                                    <input class="input is-large" type="password" placeholder="Tu Contraseña" name="password" required>
+                                </div>
+                            </div>
+                            <div class="field">
+                                <label class="label">Rol</label>
+                                <div class="control">
+                                  <div class="select">
+                                    <select name="rol">
+                                      <option value="vendedor">Vendedor</option>
+                                      <option value="supervisor">Supervisor</option>
+                                    </select>
+                                  </div>
+                                </div>
+                              </div>
+                            <button type="submit" class="button is-block is-info is-large is-fullwidth">Crear Cuenta <i class="fa fa-male" aria-hidden="true"></i></button>
+                        </form>
+                    </div>
+                    <p class="has-text-grey">
+                        <a></a> &nbsp;·&nbsp;
+                        <a href="index.html">Regresar a inicio</a> &nbsp;·&nbsp;
+                        <a></a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+<script src="/js/sweetalert2.all.min.js"></script>
+    <script>
+        Swal.fire({
+        icon: 'success',
+        title: 'Cuenta creada!',
+        showConfirmButton: false,
+        })
+        setTimeout(function(){
+            location.replace("/");
+            },1200);
+    </script>
+</html>
