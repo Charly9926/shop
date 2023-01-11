@@ -88,7 +88,7 @@ $sql = $pdo->prepare("SELECT * FROM producto WHERE idProducto=:id");
         // agregar la fila a la tabla
         tabla.appendChild(fila);
         });
-
+        
         let nombrePro = datos[0]['nombreProducto'];
         let existencia = datos[0]['existenciasxCaja'];
         document.getElementById('nombreProducto').innerHTML = "Nombre del Producto: "+nombrePro;

@@ -6,17 +6,23 @@ class Conexion extends PDO
 		private $nombreBd = 'tienda';
 		private $usuarioBd = 'root';
 		private $passwordBd = '';
+		private $conecta;
 		
-		public function __construct()
-		{
-			try{
-				parent::__construct('mysql:host=' . $this->hostBd . ';dbname=' . $this->nombreBd . ';charset=utf8', $this->usuarioBd, $this->passwordBd, array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
-				
-				} catch(PDOException $e){
-				echo 'Error: ' . $e->getMessage();
-				exit;
-			}
-		}
-	}
+		public function __construct(){
+            $cadenac="mysql:host=".$this->hostBd.";dbname=".$this->nombreBd.";charset=utf8";
+            try{
+                $this->conecta=new PDO($cadenac,$this->usuarioBd,$this->passwordBd);
+                $this->conecta->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+            }
+            catch(Exception $e){
+                $this->conecta="Error de conexion...";
+                echo "Error: ".$e->getMessage();
+        }
+        }
+
+        public function AbrirConexion(){
+            return $this->conecta;
+        }
+    }
 
 ?>
