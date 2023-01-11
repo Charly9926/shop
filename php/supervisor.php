@@ -65,7 +65,7 @@
                                 <h1 class="title post-title">Solicitudes de productos</h1>
                                 <p class="post-excerpt">Se pueden realizar solicitudes de envío de productos al almacen para que sean almacenados y estén disponibles en la tienda. En esta sección se puede ver el estado de las solicitudes de transferencia de productos, ya sea que estén en proceso, en tránsito o ya hayan llegado al almacen.</p>
                                 <br>
-                                <a href="#" class="button is-primary">Realiza una solicitud</a>
+                                <a href="/almacen.html" class="button is-primary">Realiza una solicitud</a>
                               </div>
                             </div>
                         </article>

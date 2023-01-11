@@ -66,7 +66,7 @@
                     Con su procesador snapdragon 845 y Android 11 tambien podras jugar titulos Android nativos.</p>
                 </div>
                 <div class="block"></div>
-                <form action="/php/mostrar.php" method="get">
+                <form action="/compraOdin.html" method="get">
                 <div class="mb-12 is-flex">
                   <div class="mr-6">
                     <span class="mb-4 is-block has-text-grey has-text-weight-bold" data-config-id="label1">Cantidad</span>

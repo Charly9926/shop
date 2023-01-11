@@ -1,5 +1,5 @@
 <?php
-    require_once('autoload.php');
+    require_once '/laragon/www/shop/php/restapi/conexion.php';
 
     class listar extends conexion{
         private $miconexion;
@@ -10,7 +10,7 @@
         }
 
         public function listartodos(){
-            $sql = "SELECT * FROM datos";
+            $sql = "SELECT * FROM producto";
             $consulta = $this->miconexion->prepare($sql);
             $consulta->execute();
             $registro = $consulta->fetchAll(PDO::FETCH_ASSOC);
@@ -18,7 +18,7 @@
         }
 
         public function listaID(int $id){
-            $sql = "SELECT * FROM datos where id = :id";
+            $sql = "SELECT * FROM producto WHERE idProducto=:id";
             $consulta = $this->miconexion->prepare($sql);
             $consulta->BindValue(":id", $id);
             $consulta->execute();

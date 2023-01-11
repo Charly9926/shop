@@ -1,38 +1,24 @@
 <?php
-include '/laragon/www/shop/php/restapi/conexion.php';
 require_once '/laragon/www/shop/php/restapi/inserta.php';	
 require_once '/laragon/www/shop/php/login/validarUser.php';
+require_once '/laragon/www/shop/php/restapi/listar.php';
 
 //Listar registros y consultar registro
-if($_SERVER['REQUEST_METHOD'] == 'GET' && basename($_SERVER['PHP_SELF']) == 'mostrar.php'){
+if($_SERVER['REQUEST_METHOD'] == 'GET'){
   if(isset($_GET['id']))
   {
-    $sql = $pdo->prepare("SELECT * FROM producto WHERE idProducto=:id");
-    $sql->bindValue(':id', $_GET['id']);
-    $sql->execute();
-    $sql->setFetchMode(PDO::FETCH_ASSOC);
-    header("HTTP/1.1 200 hay datos");
-    $datos = json_encode($sql->fetchAll());
-    exit;				
-  }
-    elseif ($_SERVER['REQUEST_METHOD'] == 'GET' && basename($_SERVER['PHP_SELF']) == 'validaApi.php') {
-      $verificaUser = new verifica();
-      $usuario= $_GET['user'];
-      $contrasena= $_GET['psw'];
+    $id = $_GET["id"];
 
-      $verificaUser->verificar($usuario,$contrasena);
-      header("HTTP/1.1 200 hay datos");
-      exit;	
-    }
-    else {
-    
-    $sql = $pdo->prepare("SELECT * FROM contactos");
-    $sql->execute();
-    $sql->setFetchMode(PDO::FETCH_ASSOC);
-    header("HTTP/1.1 200 hay datos");
-    echo json_encode($sql->fetchAll());
-    exit;		
+      $consultaid = new listar();
+      echo $consultaid->listaID($id);				
   }
+  else {
+    
+      $consultartodos = new listar();
+      echo $consultartodos->listartodos();	
+  }
+  header("HTTP/1.1 200 0k");
+  exit;
 }
 
 //Insertar registro

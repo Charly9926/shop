@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Questrial&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <title>Almacen</title>
+</head>
+<body>
+        <nav class="navbar is-danger" role="navigation" aria-label="main navigation">
+            <div class="container">
+              <div class="navbar-brand">
+                <a class="navbar-item" href="index.html">
+                  <img src="../img/delaoshop-rojo.png"/>
+                </a>
+        
+                <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+                  <span aria-hidden="true"></span>
+                  <span aria-hidden="true"></span>
+                  <span aria-hidden="true"></span>
+                </a>
+              </div>
+        
+              <div id="navbarBasicExample" class="navbar-menu">
+                <div class="navbar-end">
+                  <a href="/php/regreso.php" class="navbar-item"> Inicio </a>
+                  <a href="/php/login/logout.php" class="navbar-item"> Log out </a>
+                  <a class="navbar-item">  </a>
+                </div>
+              </div>
+            </div>
+        </nav>
+
+          <div class="hero">
+          <div class="hero-head">
+            <div class="block"></div>
+            <div class="container has-text-centered">
+                <img src="/img/delaoshop-rosa.png" width="240" height="240">
+                <h2 class="subtitle">
+                  Maneja la tienda
+                </h2>
+              </div>
+            </div>
+          
+                    
+        <div class="hero-body">
+            <div class="container">
+                <div class="column">
+                  <div class="columns">
+                    <div id="tabla">
+                      <table class="table is-striped is-bordered is-hoverable">
+                          <caption>informacion</caption>
+                          <thead>
+                              <th>IdProducto</th>
+                              <th>Producto</th>
+                              <th>existenciasxCaja</th>
+                              <th>productosxCaja</th>
+                              <th>precio</th>
+                              <th colspan="2"> Acciones</th>
+                          </thead>
+                          <tbody id="datos">
+                  
+                          </tbody>
+                          <tfoot>
+                              <td>Programacion web</td>
+                          </tfoot>
+                      </table>
+                  </div>
+                  </div>
+                </div>
+            
+              </div>
+        </div>
+
+          <div class="hero-foot">
+          <footer class="footer">
+              <div class="container">
+                  <div class="content has-text-centered">
+                      <p>
+                          <strong>Página web creada </strong> por: <a href="https://github.com/Charly9926">Carlos Mauricio Jiménez Sánchez</a>. El codigo fuente esta licenciado por el: 
+                          <a href="https://tesoem.edomex.gob.mx">TESOEM</a>.
+                      </p>
+                      <p>
+                          <a class="icon" href="https://www.instagram.com/just_.charly/">
+                              <i class="fa fa-instagram"></i>
+                          </a>
+                      </p>
+                  </div>
+              </div>
+          </footer>
+          </div>
+          </div> 
+</body>
+<script>
+    //Muestra todos los datos de la tabla
+          window.addEventListener("load", function(){
+          fetch('php/restapi/utils.php',{
+          method:'GET'
+          })
+          .then(res => res.json())
+          .then(data => {
+                  let cadena =''
+                  let id=""
+                      data.forEach(elementos => {
+                          cadena+=`<tr>`
+                              Object.entries(elementos).forEach(([llave,valor])=>{
+                                  cadena+=`<td>${valor}</td>`
+                                  if(llave == 'IdProducto'){
+                                    id=valor
+                                  }
+                              })
+                              cadena+=`<td><button id=e${id}>Editar</button></td><td><button id=d${id}>Eliminar</button></td></tr>` 
+                      })
+                  document.getElementById("datos").innerHTML=cadena                                                                             
+      })
+    })
+    window.addEventListener("click",function(){
+            let letter = event.srcElement.id
+            let flet = letter.charAt(0)
+            
+            if (flet == "e") {
+                let mess = confirm("Quiere editar el id: "+event.srcElement.id)   
+                alert(mess)
+
+            
+
+            }else if (flet == "d") {
+                let mess2 = confirm("Va a eliminar el id: "+event.srcElement.id)
+                alert(mess2)
+
+            }
+        })
+</script>
+</html>
